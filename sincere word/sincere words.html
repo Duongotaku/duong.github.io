@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confession</title>
+    <style>
+        body {
+            background-color: rgb(26, 23, 23); /* Nền đen */
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .text {
+            font-size: 20px;
+            font-weight: bold;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        .text:nth-child(1) { animation-delay: 5s; } /* Xuất hiện sau 1s */
+        .text:nth-child(2) { animation-delay: 15s; } /* Xuất hiện sau 3s */
+        .text:nth-child(3) { animation-delay: 20s; } /* Xuất hiện sau 5s */
+        .text:nth-child(4) { 
+            animation-delay: 25s; /* Xuất hiện sau 20s */
+            color: red;
+            font-size: 30px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transform: rotate(-45deg);
+            opacity: 0; /* Ẩn ban đầu */
+            margin-top: 2cm; /* Dịchxuống thêm 2cm */
+            animation: heartbeat 1s infinite, fadeIn 1.5s forwards 29s; /* Xuất hiện sau 24s */
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 50px;
+            top: 0;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1) rotate(-45deg); }
+            50% { transform: scale(1.2) rotate(-45deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="text">I don't know if you want to enter a serious relationship with me?</div>
+    <div class="text">As someone who doesn't know what love is like me, I don't know what to do to express my feelings.</div>
+    <div class="text">But once again I want to ask you to be my lover</div>
+    <div class="text">I Love You</div>
+    <div class="heart"></div>
+
+</body>
+</html>
